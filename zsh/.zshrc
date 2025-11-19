@@ -20,30 +20,30 @@ setopt menu_complete
 
 
 # Syntax highlighting
-if [[ -f "plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]
+if [[ -f "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]
 then
-				source "plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+				source "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 else
 				git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "plugins/zsh-syntax-highlighting"
-				source "plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+				source "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
 # Dracula theme zsh-syntax-highlighting
-if [[ -f "plugins/dracula_syntax/zsh-syntax-highlighting.sh" ]]
+if [[ -f "$HOME/.config/zsh/plugins/dracula_syntax/zsh-syntax-highlighting.sh" ]]
 then
-				source "plugins/dracula_syntax/zsh-syntax-highlighting.sh"
+				source "$HOME/.config/zsh/plugins/dracula_syntax/zsh-syntax-highlighting.sh"
 else
-				git clone "https://github.com/dracula/zsh-syntax-highlighting.git" "plugins/dracula_syntax"
-				source "plugins/dracula_syntax/zsh-syntax-highlighting.sh"
+				git clone "https://github.com/dracula/zsh-syntax-highlighting.git" "$HOME/.config/zsh/plugins/dracula_syntax"
+				source "$HOME/.config/zsh/plugins/dracula_syntax/zsh-syntax-highlighting.sh"
 fi
 
 # zsh improve vim mode
-if [[ -f "plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh" ]]
+if [[ -f "$HOME/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh" ]]
 then
-				source "plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+				source "$HOME/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 else
-				git clone "https://github.com/jeffreytse/zsh-vi-mode.git" "plugins/zsh-vi-mode"
-				source "plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+				git clone "https://github.com/jeffreytse/zsh-vi-mode.git" "$HOME/.config/zsh/plugins/zsh-vi-mode"
+				source "$HOME/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 fi
 
 
@@ -69,6 +69,7 @@ alias c="clear"
 alias sd="shutdown now"
 alias rb="reboot"
 alias df="cd .dotfiles"
+alias ls="ls --color=auto"
 
 # Program aliases
 alias nv="nvim"

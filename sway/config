@@ -19,6 +19,8 @@ set $term alacritty
 set $menu wofi --show drun
 font otf-comicshanns-nerd 15
 
+exec_always --no-startup-id mako
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
