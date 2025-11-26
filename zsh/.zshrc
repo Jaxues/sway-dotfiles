@@ -1,9 +1,21 @@
+# XDG Configs
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_PICTURES_DIR="$HOME/Pictures"
+export XDG_DOCUMENTS_DIR="$HOME/Documents"
+export XDG_DOWNLOADS_DIR="$HOME/Downloads"
+
 # Enviorment Variables
 export EDITOR="nvim"
 export VISUAL=$EDITOR
 export BROWSER="firefox"
 export TERM="alacritty"
 
+
+# Vi keys
+bindkey -v 
 
 # Installing plugins
 
@@ -18,13 +30,12 @@ export TERM="alacritty"
 setopt auto_menu
 setopt menu_complete
 
-
 # Syntax highlighting
 if [[ -f "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]
 then
 				source "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 else
-				git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "plugins/zsh-syntax-highlighting"
+				git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "$HOME/.config/zsh/plugins/zsh-syntax-highlighting"
 				source "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
@@ -37,16 +48,6 @@ else
 				source "$HOME/.config/zsh/plugins/dracula_syntax/zsh-syntax-highlighting.sh"
 fi
 
-# zsh improve vim mode
-if [[ -f "$HOME/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh" ]]
-then
-				source "$HOME/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-else
-				git clone "https://github.com/jeffreytse/zsh-vi-mode.git" "$HOME/.config/zsh/plugins/zsh-vi-mode"
-				source "$HOME/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-fi
-
-
 # Arch aliases
 alias pacin="sudo pacman -S"
 alias pacupd="sudo pacman -Syu"
@@ -55,6 +56,7 @@ alias pacrma="sudo pacman -Rns"
 alias pacln="sudo pacman -Sc"
 alias paclr="sudo pacman -Scc"
 alias pacorph="sudo pacman -Rs $(pacman -Qtdq)"
+alias paclist="pacman -Qte"
 
 # Yay aliases
 alias yayin="yay -S"
@@ -63,6 +65,7 @@ alias yayrm="yay -R"
 alias yayrma="yay -Rns"
 alias yacln="yay -Sc"
 alias yaclr="yay -Scc"
+alias yaylist="pacman -Qtem"
 
 # Command Aliases
 alias c="clear"
@@ -74,6 +77,9 @@ alias ls="ls --color=auto"
 # Program aliases
 alias nv="nvim"
 alias sc="sc-im"
+alias nb="newsboat"
+alias hf="hyfetch"
+
 
 # Prompt
 eval "$(starship init zsh)"

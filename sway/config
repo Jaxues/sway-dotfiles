@@ -20,7 +20,9 @@ set $menu wofi --show drun
 font otf-comicshanns-nerd 15
 
 exec_always --no-startup-id mako
-
+exec_always --no-startup-id autotiling
+exec_always wl-paste -t text --watch clipman store
+exec_always calcurse --daemon
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -45,6 +47,7 @@ exec_always --no-startup-id mako
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
+
 #
 # Example configuration:
 #
@@ -148,8 +151,6 @@ exec_always --no-startup-id mako
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
@@ -212,9 +213,26 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     bindsym Print exec grim
-
+		# Select from clipboard
+		bindsym F1 exec clipman pick -t wofi 
+		# Audio settings
+		bindsym F2 exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+		bindsym F3 exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+		bindsym F4 exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+		# Delete clipboard item
+		bindsym F5 exec clipman clear -t wofi
+		# Brightness adjustment
+		bindsym F6 exec brightnessctl set 5%-
+		bindsym F7 exec brightnessctl set 5%+
+		# Screenshot tools
+		bindsym F8 exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshots/$(date +'%s_grim.png')
+		bindsym F9 exec grim $(xdg-user-dir PICTURES)/screenshots/$(date +'%s_grim.png') & notify-send --wait=100 -u critical "Screenshot at Pictures/screenshots"
+		# Clear all clipboard hist
+		bindsym F10 exec clipman clear --all
+		# Notifaction settings
+		bindsym F11 exec nmcli radio all on & notify-send -u critical "Airplane mode off"
+		bindsym F12 exec nmcli radio all off & notify-send -u critical "Airplane mode on"
 #
-
 
 # class                 border  bground text    indicator child_border
 client.focused          #ff79c6 #ff79c6 #F8F8F2 #ff79c6   #ff79c6
