@@ -1,0 +1,5 @@
+clipman 1.6.5-1
+sc-im 0.8.5-1
+xdg-ninja 0.2.0.2-2
+yay 12.5.3-1
+yay-debug 12.5.3-1
