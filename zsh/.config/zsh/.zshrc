@@ -15,6 +15,9 @@ export TERM="alacritty"
 export GOPATH="$XDG_DATA_HOME"/go
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export AIRPLANE_MODE="False"
+
+export PATH="$HOME/.local/bin:$PATH"
+
 # Vi keys
 bindkey -v 
 export KEYTIMEOUT=1
@@ -69,7 +72,8 @@ alias pacrma="sudo pacman -Rns"
 alias pacln="sudo pacman -Sc"
 alias paclr="sudo pacman -Scc"
 alias pacorph="sudo pacman -Rs $(pacman -Qtdq)"
-alias paclist="pacman -Qte > $HOME/.dotfiles/internal.txt"
+alias paclist="pacman -Qte > $HOME/.dotfiles/pkglist.txt"
+alias pacmir="sudo pacman -Sy"
 
 # Yay aliases
 alias yayin="yay -S"
@@ -78,13 +82,25 @@ alias yayrm="yay -R"
 alias yayrma="yay -Rns"
 alias yacln="yay -Sc"
 alias yaclr="yay -Scc"
-alias yaylist="pacman -Qtem > $HOME/.dotfiles/external.txt"
+alias yaylist="pacman -Qtem > $HOME/.dotfiles/foreign-pkglist.txt"
+
+
+# Git aliaswa
+alias ga="git add"
+alias gah="git add ."
+alias gaa="git add --all"
+alias gc="git commit -m"
+alias gp="git push"
+alias gl="git pull"
+alias glr="git pull -r=true"
+alias gd="git diff"
 
 # Command Aliases
 alias c="clear"
 alias sd="shutdown now"
 alias rb="reboot"
 alias ls="ls --color=auto"
+alias prv="cd .."
 
 # Program aliases
 alias nv="nvim"

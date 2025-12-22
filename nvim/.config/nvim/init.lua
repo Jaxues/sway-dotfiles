@@ -46,7 +46,7 @@ lazy.setup({
     init = function() 
       vim.g.vimwiki_list = {
         {
-					path='~/vimwiki',
+					path='~$HOME/Documents/vimwiki',
 					syntax = 'markdown',
           ext = '.md',
         },
@@ -78,8 +78,29 @@ lazy.setup({
       require("nvim-tree").setup {}
 			vim.keymap.set('n', '<leader>d', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
     end,
-  }
+  },
+	{
+    'nvim-telescope/telescope.nvim', tag = 'v0.2.0',
+     dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+--		{"neovim/nvim-lspconfig"},
+--
 })
+
+local builtin = require('telescope.builtin')
+
+-- Telescope bindings
+-- vim.keymap.set( mode, keymap, function to call)
+-- Searches for files. Use instead of vimtree
+vim.keymap.set('n', '<leader>ff', builtin.find_files)
+-- Search previously opened files
+vim.keymap.set('n','<leader>fp',builtin.oldfiles)
+-- Search files commited in git
+vim.keymap.set('n','<leader>fg',builtin.git_files)
+-- Search git commits
+vim.keymap.set( 'n','<leader>fc',builtin.git_commits)
+-- Grep for string in all files
+vim.keymap.set( 'n', '<leader>fs', builtin.live_grep)
 
 
 -- these should stay AFTER lazy.setup
