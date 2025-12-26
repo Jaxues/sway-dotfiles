@@ -1,1 +1,1 @@
-export ZDOTDIR="/home/avery/.config/zsh"
+ZDOTDIR="$HOME/.config/zsh"
