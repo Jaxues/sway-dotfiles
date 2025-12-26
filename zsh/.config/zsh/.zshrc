@@ -15,8 +15,8 @@ export TERM="alacritty"
 export GOPATH="$XDG_DATA_HOME"/go
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export AIRPLANE_MODE="False"
-
 export PATH="$HOME/.local/bin:$PATH"
+export YSU_HARDCORE=1
 
 # Vi keys
 bindkey -v 
@@ -64,6 +64,15 @@ else
 fi
 
 
+if [[ -f "$HOME/.config/zsh/plugins/you-should-use/zsh-you-should-use.plugin.zsh" ]]
+then
+				source "$HOME/.config/zsh/plugins/you-should-use/zsh-you-should-use.plugin.zsh"
+else
+				git clone https://github.com/MichaelAquilina/zsh-you-should-use.git "$HOME/.config/zsh/plugins/you-should-use/"
+				source "$HOME/.config/zsh/plugins/you-should-use/zsh-you-should-use.plugin.zsh"
+fi
+
+
 # Arch aliases
 alias pacin="sudo pacman -S"
 alias pacupd="sudo pacman -Syu"
@@ -108,6 +117,9 @@ alias sc="sc-im"
 alias nb="newsboat"
 alias hf="hyfetch"
 alias vw="cd $XDG_DOCUMENTS_DIR/vimwiki && nvim index.md"
+
+alias temp="curl wttr.in"
+
 
 # Check that the function `starship_zle-keymap-select()` is defined.
 # xref: https://github.com/starship/starship/issues/3418
