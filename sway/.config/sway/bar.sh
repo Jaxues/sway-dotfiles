@@ -30,7 +30,7 @@ BAT_STATUS=""
 
 # Format battery icon, depending on the status.
 if [[ "${BATTERY_INFO[2]}" == *"Charging"* ]]; then
-    ICON="  " # Plug icon, font awesome.
+    ICON=" " # Plug icon, font awesome.
 else
     ICON=" " # Car Battery icon, font awesome
 fi
@@ -52,19 +52,19 @@ BAT_STATUS=$"${ICON}${BAT_STATUS}${CHARGE}%\e[0m"
 # Root Stats
 ROOT_PERCENT=$(df --output=pcent / | tail -n 1 | tr -d ' %')
 ROOT_COLOR=""
-# Color root based on percent used
+# Color root based on percent used is opposite of Battery 
 if [[ $ROOT_PERCENT -lt 30 ]]; then
-    # red-ish
+    # Green 
     ROOT_COLOR=$GREEN
-elif [[ $ROOT_PERCENT -gt 60 ]]; then
-    # yellow-ish
+elif [[ $ROOT_PERCENT -gt 50 ]]; then
+    # Yellow
     ROOT_COLOR=$YELLOW
 elif [[ $ROOT_PERCENT -gt 75 ]]; then
-    # green-ish
+    # Red 
     ROOT_COLOR=$RED
 fi
 
-ROOT_STATUS=$"$ROOT_COLOR$ROOT_PERCENT% used $BASE_COLOR"
+ROOT_STATUS=$"$ROOT_COLOR$ROOT_PERCENT% used$BASE_COLOR"
 
 # Volume Module
 VOLUME=$"$(pamixer --get-volume)"
@@ -80,9 +80,7 @@ else
 fi
 
 # Color based on volume amount
-if [[ $VOLUME = 0 ]]; then
-				VOLUME_COLOR=$RED
-elif [[ $VOLUME -gt 90 ]]; then
+if [[ $VOLUME = 0 || $VOLUME -gt 90 ]]; then
 				VOLUME_COLOR=$RED
 else
 				VOLUME_COLOR=$BASE_COLOR
@@ -90,6 +88,15 @@ fi
 
 VOLUME_STATUS="$VOLUME_ICON $VOLUME_COLOR$VOLUME%$BASE_COLOR"
 
+# Brightness Module
+#BRIGHTNESS=$(brightnessctl g%)
+#MAX_BRIGHTNESS=$(brightnessctl max)
+
+BRIGHTNESS=$(brightnessctl info | awk -F'[()%]' '/Current brightness/ {print $2}')
+
+echo $BRIGHTNESS
+
+
 # Final formated output.
-echo -e $"$NET_STATUS|$BAT_STATUS|$VOLUME_STATUS|/:$ROOT_STATUS|$DATE"
+echo -e $"$NET_STATUS|$BAT_STATUS|$BRIGHTNESS% brightness|$VOLUME_STATUS|/:$ROOT_STATUS|$DATE"
 
