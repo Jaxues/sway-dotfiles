@@ -244,7 +244,8 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 
 bar {
-  colors {
+	pango_markup enabled
+	colors {
     background #282A36
     statusline #F8F8F2
     separator  #44475A
@@ -255,8 +256,8 @@ bar {
     urgent_workspace   #FF5555 #FF5555 #F8F8F2
     binding_mode       #FF5555 #FF5555 #F8F8F2
   }
-  status_command while ~/.config/sway/bar.sh; do sleep 1; done	
-	font otf-comicshanns-nerd 15
+	status_command while ~/.config/sway/bar.sh; do sleep 1; done	
+	font pango:"ComicShannsMono Nerd Font" 15
 
 }
 # Status Bar:

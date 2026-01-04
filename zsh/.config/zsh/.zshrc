@@ -103,6 +103,8 @@ alias gp="git push"
 alias gl="git pull"
 alias glr="git pull -r=true"
 alias gd="git diff"
+alias guf="git ls-files --other"
+alias gf="git ls-files"
 
 # Command Aliases
 alias c="clear"
@@ -120,6 +122,22 @@ alias vw="cd $XDG_DOCUMENTS_DIR/vimwiki && nvim index.md"
 
 alias temp="curl wttr.in"
 
+# Python venv function 
+function vrun { 
+				if [[ -f "$PWD/$1/bin/activate" ]] then 
+								source "$PWD/$1/bin/activate" 
+				else 
+								echo "No virtual enviorment named $1" 
+				fi}
+alias py="python"
+alias mkv="python -m venv"
+
+# Install python packages from textfile
+
+# List all packages in requirements.txt
+
+# Upgrade all packages
+# Remove package
 
 # Check that the function `starship_zle-keymap-select()` is defined.
 # xref: https://github.com/starship/starship/issues/3418

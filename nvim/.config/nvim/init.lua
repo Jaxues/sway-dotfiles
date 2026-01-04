@@ -14,7 +14,8 @@ vim.o.cmdheight = 0
 vim.diagnostic.config({ virtual_text = false })
 vim.o.swapfile = false
 vim.o.wrap = false
-vim.o.winborder = "rounded"
+vim.o.undofile=true
+
 
 
 function lazy.install(path)
@@ -83,6 +84,7 @@ lazy.setup({
 	{ "mason-org/mason.nvim" },
 	{ "neovim/nvim-lspconfig" },
 	{ "mason-org/mason-lspconfig.nvim" },
+	{ "folke/twilight.nvim" },
 	-- {"nvim-cmp"},
 	-- {""},
 	-- {""},
@@ -131,6 +133,15 @@ vim.keymap.set('n', '<leader>fs', builtin.live_grep)
 
 -- Format file with lsp
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
+
+-- Toggle twilight
+vim.keymap.set('n','<leader>t',':Twilight<CR>')
+
+-- Make normies suffer >:)
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- these should stay AFTER lazy.setup
 require("lualine").setup()
