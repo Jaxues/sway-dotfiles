@@ -85,7 +85,13 @@ lazy.setup({
 	{ "neovim/nvim-lspconfig" },
 	{ "mason-org/mason-lspconfig.nvim" },
 	{ "folke/twilight.nvim" },
-	-- {"nvim-cmp"},
+	{"hrsh7th/nvim-cmp",
+	dependencies={"hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+		"hrsh7th/cmp-nvim-lsp"},},
+		{"L3MON4D3/LuaSnip"},
+		{"saadparwaiz1/cmp_luasnip"}
 	-- {""},
 	-- {""},
 	-- {""},
@@ -118,6 +124,18 @@ vim.lsp.enable('pyright')
 --
 local builtin = require('telescope.builtin')
 
+
+--local cmp = require('cmp')
+--cmp.setup({
+--				mapping= cmp.mapping.insert({
+--								['<C-j>']=cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+--								['<C-k>']=cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+--								['<C-Space>']=cmp.mapping.complete(),
+--								['<C-h>']=cmp.mapping.abort(),
+--								['<C-l']=cmp.mapping.confirm({select=true}),
+--				})
+--})
+--
 -- Telescope bindings
 -- vim.keymap.set( mode, keymap, function to call)
 -- Searches for files. Use instead of vimtree
