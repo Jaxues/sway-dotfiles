@@ -122,6 +122,11 @@ alias vw="cd $XDG_DOCUMENTS_DIR/vimwiki && nvim index.md"
 
 alias temp="curl wttr.in"
 
+
+# Bluetooth
+alias blue-on="sudo systemctl start bluetooth"
+alias blue-off="sudo systemctl stop bluetooth"
+
 # Python venv function 
 function vrun { 
 				if [[ -f "$PWD/$1/bin/activate" ]] then 
