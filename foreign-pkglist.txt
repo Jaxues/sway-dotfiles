@@ -1,5 +1,7 @@
 clipman 1.6.5-1
+huiontablet 15.0.0.162-1
+rstudio-server-bin 2026.01.0_392-1
 sc-im 0.8.5-1
-xdg-ninja 0.2.0.2-2
+wofi-calc 1.1-3
 yay 12.5.7-1
 yay-debug 12.5.7-1

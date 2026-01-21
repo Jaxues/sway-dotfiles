@@ -119,13 +119,14 @@ alias sc="sc-im"
 alias nb="newsboat"
 alias hf="hyfetch"
 alias vw="cd $XDG_DOCUMENTS_DIR/vimwiki && nvim index.md"
-
-alias temp="curl wttr.in"
-
+alias rstudio-start="rstudio-server start"
+alias rstudio-stop="rstudio-server stop"
+alias slide="libreoffice --headless --convert-to pdf"
 
 # Bluetooth
-alias blue-on="sudo systemctl start bluetooth"
+alias blue-on="sudo systemctl start bluetooth "
 alias blue-off="sudo systemctl stop bluetooth"
+alias blue-status="systemctl is-active 'bluetooth.service'"
 
 # Python venv function 
 function vrun { 
