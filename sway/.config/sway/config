@@ -78,8 +78,8 @@ exec_always calcurse --daemon
 
     # Start your launcher
     bindsym $mod+d exec $menu
-		bindsym Menu exec $menu
 		bindsym $mod+b exec wofi-bluetooth
+		bindsym $mod+c exec wofi-calc
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -195,6 +195,9 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+bindsym $mod+Ctrl+j workspace next
+bindsym $mod+Ctrl+k workspace prev
+
 #
 # Utilities:
 #
